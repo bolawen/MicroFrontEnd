@@ -9,10 +9,10 @@ import {
 import Home from "./Home";
 import About from "./About";
 
-function App(props:any) {
-  const Router = props.mode === "history" ? BrowserRouter : HashRouter;
+function App(props: any) {
+  const Router = BrowserRouter;
   return (
-    <Router basename={props.base}>
+    <Router basename={"/"}>
       <NavLink to="/">首页</NavLink>
       <NavLink to="/about">关于</NavLink>
       <Routes>
