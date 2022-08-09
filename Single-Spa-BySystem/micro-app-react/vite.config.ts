@@ -13,24 +13,23 @@ export default ({ mode }) => {
       port: 8082,
     },
     build: {
-      minify: "terser",
       assetsDir: "",
       outDir: "output",
       cssCodeSplit: false,
       rollupOptions: {
-        input: "src/single-spa-config.ts",
+        input: "src/single-spa-config.tsx",
         preserveEntrySignatures: "exports-only",
         external: [
           "react",
           "react-dom",
           "single-spa",
           "single-spa-react",
-          "react-router-dom",
+          "axios",
+          "lodash",
         ],
         output: {
           format: "system",
-          compact: true,
-          entryFileNames: `${packageInfo.name}.[format].[hash].js`,
+          entryFileNames: `${packageInfo.name}.[hash].js`,
         },
       },
     },
