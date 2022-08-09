@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main-App-Vue3</title>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "react": "https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js",
+          "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js",
+          "react-router-dom":"https://cdn.jsdelivr.net/npm/react-router-dom@5.3.3/umd/react-router-dom.min.js",
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.8.2/lib/system/single-spa.min.js",
+          "single-spa-react": "https://cdn.jsdelivr.net/npm/single-spa-react@4.6.1/lib/system/single-spa-react.js",
+          "single-spa-vue": "https://cdn.jsdelivr.net/npm/single-spa-vue@2.5.1/dist/system/single-spa-vue.js",
+          "micro-app-vue3": "https://bolawen.github.io/MicroFrontEnd/Single-Spa-BySystem/micro-app-vue3/output/micro-app-vue3.system.759a4557.js",
+          "micro-app-react":"https://bolawen.github.io/MicroFrontEnd/Single-Spa-BySystem/micro-app-react/output/micro-app-react.092b73cb.js"
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.16.0/dist/import-map-overrides.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/named-exports.js"></script>
+  </head>
+  <body>
+    <div id="single-spa-application:single-spa-vue-nav"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
