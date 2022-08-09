@@ -13,6 +13,7 @@ export default ({ mode }) => {
       port: 8082,
     },
     build: {
+      minify: "terser",
       assetsDir: "",
       outDir: "output",
       cssCodeSplit: false,
@@ -28,6 +29,7 @@ export default ({ mode }) => {
         ],
         output: {
           format: "system",
+          compact: true,
           entryFileNames: `${packageInfo.name}.[format].[hash].js`,
         },
       },

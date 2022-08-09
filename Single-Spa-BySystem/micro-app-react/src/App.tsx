@@ -9,12 +9,7 @@ import {
 import Home from "./Home";
 import About from "./About";
 
-export interface AppPropsType {
-  base?: string;
-  mode?: "hash" | "history";
-}
-
-function App(props: AppPropsType) {
+function App(props:any) {
   const Router = props.mode === "history" ? BrowserRouter : HashRouter;
   return (
     <Router basename={props.base}>
