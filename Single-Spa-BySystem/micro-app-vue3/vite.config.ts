@@ -7,7 +7,7 @@ export default ({ mode }) => {
     plugins: [vue()],
     base:
       mode === "production"
-        ? `https://s3-gz01.didistatic.com/mapp/${packageInfo.name}/`
+        ? `https://bolawen.github.io/MicroFrontEnd/Single-Spa-BySystem/${packageInfo.name}/`
         : "/",
     server: {
       port: 8081,
