@@ -20,12 +20,12 @@ export default ({ mode }) => {
         input: "src/single-spa-config.tsx",
         preserveEntrySignatures: "exports-only",
         external: [
+          "axios",
+          "lodash",
           "react",
           "react-dom",
           "single-spa",
           "single-spa-react",
-          "axios",
-          "lodash",
         ],
         output: {
           format: "system",

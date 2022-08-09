@@ -4,15 +4,17 @@ import {
   Routes,
   Route,
   NavLink,
+  HashRouter,
 } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 
 function App(props: any) {
-  console.log("Micro-App-React props",props);
-  const Router = BrowserRouter;
+  console.log("Micro-App-React props", props);
+  const { base, mode } = props;
+  const Router = mode === "history" ? BrowserRouter : HashRouter;
   return (
-    <Router basename={"/"}>
+    <Router basename={base}>
       <NavLink to="/">首页</NavLink>
       <NavLink to="/about">关于</NavLink>
       <Routes>
