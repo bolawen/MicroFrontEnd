@@ -1,7 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-
-ReactDOM.createRoot(
-  document.getElementById("micro-app-react") as HTMLElement
-).render(<App />);
+import { registerApplication, start } from 'single-spa';
+import * as app from './single-spa-config';
+import packageInfo from '../package.json';
+registerApplication({
+  name: packageInfo.name,
+  app: app,
+  activeWhen: () => true,
+  customProps: {
+    base: '/',
+    mode: 'history',
+    myProp: 'propsDev',
+  },
+});
+start({
+  urlRerouteOnly: true,
+});

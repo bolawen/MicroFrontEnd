@@ -8,7 +8,7 @@ const lifecycles = singleSpaReact({
   ReactDOM,
   rootComponent: App,
   errorBoundary(err, info, props) {
-    return React.createElement("div",null);
+    return React.createElement("div",null,"错误");
   },
 });
 

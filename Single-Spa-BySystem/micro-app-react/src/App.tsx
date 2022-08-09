@@ -1,7 +1,6 @@
 import React from "react";
 import {
   BrowserRouter,
-  HashRouter,
   Routes,
   Route,
   NavLink,
@@ -10,6 +9,7 @@ import Home from "./Home";
 import About from "./About";
 
 function App(props: any) {
+  console.log("Micro-App-React props",props);
   const Router = BrowserRouter;
   return (
     <Router basename={"/"}>
