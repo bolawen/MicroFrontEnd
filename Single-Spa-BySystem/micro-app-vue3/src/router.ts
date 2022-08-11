@@ -1,5 +1,5 @@
-import { AppProps } from "single-spa";
 import {
+  Router,
   createRouter,
   createWebHistory,
   createWebHashHistory,
@@ -7,17 +7,15 @@ import {
 import Home from "./pages/Home.vue";
 import About from "./pages/About.vue";
 
-export default function create(
-  mode: string,
-  base: string,
-  mountParcel: AppProps["mountParcel"]
-) {
+const routes = [
+  { path: "/", component: Home },
+  { path: "/about", component: About },
+];
+
+export default function create(base?: string, mode?: string): Router {
   return createRouter({
     history:
       mode === "history" ? createWebHistory(base) : createWebHashHistory(base),
-    routes: [
-      { path: "/", component: Home },
-      { path: "/about", component: About },
-    ],
+    routes,
   });
 }
