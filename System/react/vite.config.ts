@@ -7,7 +7,7 @@ export default ({ mode }) => {
     plugins: [reactRefresh()],
     base:
       mode === "production"
-        ? `https://bolawen.github.io/MicroFrontEnd/System/${packageInfo.name}/`
+        ? `https://bolawen.github.io/MicroFrontEnd/System/${packageInfo.name}/output/`
         : "/",
     server: {
       port: 3001,
