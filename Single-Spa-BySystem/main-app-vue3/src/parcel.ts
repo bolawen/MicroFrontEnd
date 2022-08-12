@@ -1,36 +1,35 @@
+import { mountRootParcel } from "single-spa";
 import { defineComponent, h, onMounted, onUnmounted, ref, watch } from "vue";
 
 export default defineComponent({
-  name: "parcel",
+  name: "Parcel",
   props: {
     config: [Object, Promise],
+    path: String,
     wrapWith: String,
     wrapClass: String,
     wrapStyle: Object,
-    mountParcel: {
-      type: Function,
-      required: true,
-    },
     parcelProps: Object,
   },
   setup(props) {
-    console.log("哈哈哈",props)
+    const { config, parcelProps, wrapClass, wrapStyle, wrapWith, path } = props;
     const el = ref<HTMLElement | null>(null);
     const parcel = ref<any>(null);
     onMounted(() => {
-      parcel.value = props.mountParcel(props.config, {
-        ...props.parcelProps,
+      parcel.value = mountRootParcel(config, {
+        ...parcelProps,
         domElement: el.value,
       });
       parcel.value.mountPromise.then(() => {
-        console.log("parcel mounted");
+        console.log(`${path}-挂载完成`);
       });
     });
+
     onUnmounted(() => {
       if (parcel.value) {
         parcel.value.unmount();
         parcel.value.unmountPromise.then(() => {
-          console.log("parcel unmounted");
+          console.log(`${path}-卸载完成`);
         });
       }
     });
@@ -50,11 +49,12 @@ export default defineComponent({
         }
       }
     );
+
     return () =>
       h("div", {
-        class: props.wrapClass,
-        style: props.wrapStyle,
         ref: el,
+        class: wrapClass,
+        style: wrapStyle,
       });
   },
 });

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System 模块化</title>
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.16.0/dist/import-map-overrides.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/named-exports.js"></script>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "react": "https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js",
+          "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js",
+          "react-router-dom": "https://cdn.jsdelivr.net/npm/react-router-dom@5.3.3/umd/react-router-dom.min.js",
+          "react-demo-js": "https://bolawen.github.io/MicroFrontEnd/System/react/output/react.0d2916ba.js",
+          "react-demo-css": "https://bolawen.github.io/MicroFrontEnd/System/react/output/style.83672185.css"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      async function load() {
+        await System.import("react-demo-css");
+        await System.import("react-demo-js");
+      }
+      load();
+    </script>
+  </body>
+</html>

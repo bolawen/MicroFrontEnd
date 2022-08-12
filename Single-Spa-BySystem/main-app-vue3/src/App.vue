@@ -1,8 +1,8 @@
 <template>
-  <div>Main-App-Vue3 主应用</div>
+  <div>Main-App-Vue3 基座Demo</div>
   <div>
-    <router-link to="/micro-app-vue3">micro-app-vue3</router-link>
-    <router-link to="/micro-app-react">micro-app-react</router-link>
+    <router-link to="/">首页</router-link>
+    <router-link to="/content">内容</router-link>
   </div>
   <router-view></router-view>
 </template>
@@ -21,7 +21,7 @@ export default defineComponent({
     singleSpa: Object as PropType<AppProps["singleSpa"]>,
   },
   setup(props) {
-    console.log("Main-App-Vue3 Props",props);
+    console.log("Main-App-Vue3 Props", props);
   },
 });
 </script>
