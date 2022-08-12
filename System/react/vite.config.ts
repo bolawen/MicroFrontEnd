@@ -10,7 +10,7 @@ export default ({ mode }) => {
         ? `https://bolawen.github.io/MicroFrontEnd/System/${packageInfo.name}/`
         : "/",
     server: {
-      port: 8082,
+      port: 3001,
     },
     build: {
       assetsDir: "",
@@ -20,6 +20,7 @@ export default ({ mode }) => {
         input: "src/main.tsx",
         preserveEntrySignatures: "exports-only",
         external: [
+          "axios",
           "react",
           "react-dom",
         ],
