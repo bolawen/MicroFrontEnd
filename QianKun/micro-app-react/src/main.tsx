@@ -6,12 +6,13 @@ import packageInfo from "../package.json";
 export interface QianKunPropsType {
   base: string;
   mode: "hash" | "history";
-  container?: string;
+  mountContainer?: string;
 }
 
 function render(props: QianKunPropsType) {
-  const { base, mode, container = "" } = props;
-  ReactDOM.createRoot(document.getElementById(container) as HTMLElement).render(
+  const { base, mode, mountContainer = "" } = props;
+  console.log(document.getElementById(mountContainer))
+  ReactDOM.createRoot(document.getElementById(mountContainer) as HTMLElement).render(
     <App base={base} mode={mode} />
   );
 }
@@ -20,7 +21,7 @@ if (!window.__POWERED_BY_QIANKUN__) {
   const props: QianKunPropsType = {
     base: "/",
     mode: "history",
-    container: `${packageInfo.name}`,
+    mountContainer: `${packageInfo.name}`,
   };
   render(props);
 }
