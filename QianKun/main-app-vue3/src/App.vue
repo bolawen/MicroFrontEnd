@@ -2,34 +2,9 @@
   <div>
     <h3>Main-App-Vue3 基座</h3>
     <div>
-      <button @click="handleChangeMicro('micro-app-vue3')">
-        micro-app-vue3 微应用
-      </button>
-      <button @click="handleChangeMicro('micro-app-vue3')">
-        micro-app-react 主应用
-      </button>
+      <router-link to="/">首页</router-link>
+      <router-link to="/content">内容</router-link>
     </div>
-    <div ref="microAppParentContainer"></div>
+    <router-view />
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref, onMounted, nextTick } from "vue";
-
-const microAppParentContainer = ref(null);
-
-function handleChangeMicro(microApp: string) {
-  const microAppContainer = document.createElement("div");
-  microAppContainer.id = microApp;
-  microAppParentContainer.value.append(microAppContainer);
-
-  nextTick(() => {
-    const globalState = {
-      name: microApp,
-      operation: "mount",
-    };
-    window.actions.setGlobalState(globalState);
-  });
-}
-</script>
-<style scoped></style>

@@ -2,8 +2,12 @@ import { loadMicroApp, initGlobalState, MicroApp } from "qiankun";
 import microAppMap from "./microApp";
 
 interface GlobalStateType {
+  base: string;
+  mode: "hash" | "history";
   name: MicroAppType;
   operation: "mount" | "unmount" | "reload";
+  mountContainer: string;
+  iframeUrl?: string;
 }
 interface MountedMicroAppMapType {
   [key: string]: MicroApp;
@@ -28,13 +32,20 @@ function excludeAssetFilter(assetUrl: string) {
   });
 }
 async function handleMount(state: GlobalStateType) {
-  const { name } = state;
+  const { name, base, mode, iframeUrl, mountContainer } = state;
   const mountedMicroApp = mountedMicroAppMap[name];
   if (mountedMicroApp) {
     await mountedMicroApp.mount();
     return;
   }
   const microApp = microAppMap[name];
+  microApp.props = {
+    ...microApp.props,
+    base,
+    mode,
+    iframeUrl,
+    mountContainer,
+  };
   mountedMicroAppMap[name] = loadMicroApp(microApp, {
     singular: false,
     sandbox: {
